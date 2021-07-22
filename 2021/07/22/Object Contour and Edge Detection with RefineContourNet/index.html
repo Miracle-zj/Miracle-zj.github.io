@@ -18,7 +18,7 @@
   <meta name="author" content="zj">
   <meta name="keywords" content="">
   
-  <title>Leetcode之二叉树 - Miracle-zj</title>
+  <title>论文阅读 - Miracle-zj</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -151,7 +151,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Leetcode之二叉树">
+            <span class="h2" id="subtitle" title="论文阅读">
               
             </span>
 
@@ -161,8 +161,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-06-19 10:29" pubdate>
-        2021-06-19 10:29:28
+      <time datetime="2021-07-22 16:24" pubdate>
+        2021-07-22 16:24:08
       </time>
     </span>
   
@@ -173,7 +173,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      793 字
+      1.2k 字
     </span>
   
 
@@ -183,7 +183,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      36
+      45
        分钟
     </span>
   
@@ -221,25 +221,72 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Leetcode之二叉树</h1>
+            <h1 style="display: none">论文阅读</h1>
             
             <div class="markdown-body">
-              <h1 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h1><h1 id="110-平衡二叉树"><a href="#110-平衡二叉树" class="headerlink" title="110. 平衡二叉树"></a>110. 平衡二叉树</h1><p><font color="#999AAA"><strong>给定一个二叉树，判断它是否是高度平衡的二叉树。</strong><br>本题中，一棵高度平衡二叉树定义为：一个二叉树每个节点 的左右两个子树的高度差的绝对值不超过 1 。<br><font color="#999AAA"><strong>输入</strong>：root = [3,9,20,null,null,15,7]<br><strong>输出</strong>：true</font></font></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">depth</span><span class="hljs-params">(TreeNode root)</span></span>&#123;<br>        <span class="hljs-keyword">if</span>(root==<span class="hljs-keyword">null</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">int</span> left=depth(root.left);<br>        <span class="hljs-keyword">if</span>(left==-<span class="hljs-number">1</span>) <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">int</span> right=depth(root.right);<br>        <span class="hljs-keyword">if</span>(right==-<span class="hljs-number">1</span>) <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">if</span>(Math.abs(left-right)&gt;<span class="hljs-number">1</span>) <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>+Math.max(left,right);<br><br>    &#125;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isBalanced</span><span class="hljs-params">(TreeNode root)</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> depth(root)==-<span class="hljs-number">1</span>?<span class="hljs-keyword">false</span>:<span class="hljs-keyword">true</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<blockquote>
-<p>思路：递归<br>三步走：(1)明确递归函数的参数和返回值;<br><code>public int depth(TreeNode root)</code><br>(2)明确终止条件;<br><code>if(root==null) return 0;</code><br>(3)明确单层递归的逻辑。<br>如何判断当前传入节点为根节点的二叉树是否是平衡二叉树呢，当然是左子树高度和右子树高度相差。<br>分别求出左右子树的高度，然后如果差值小于等于1，则返回当前二叉树的高度，否则则返回-1，表示已经不是二叉树了。</p>
-</blockquote>
-<h1 id="222-完全二叉树的节点个数"><a href="#222-完全二叉树的节点个数" class="headerlink" title="222. 完全二叉树的节点个数"></a>222. 完全二叉树的节点个数</h1><p><font color="#999AAA"><strong>给你一棵 完全二叉树 的根节点 root ，求出该树的节点个数。</strong><br>完全二叉树 的定义如下：在完全二叉树中，除了最底层节点可能没填满外，其余每层节点数都达到最大值，并且最下面一层的节点都集中在该层最左边的若干位置。若最底层为第 h 层，则该层包含 1~ 2^h 个节点。<br><strong>输入</strong>：root = [1,2,3,4,5,6]<br><strong>输出</strong>：6</font></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//迭代法，不高效 O(n),O(n)</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">countNodes</span><span class="hljs-params">(TreeNode root)</span> </span>&#123;<br>        Queue&lt;TreeNode&gt; q=<span class="hljs-keyword">new</span> LinkedList&lt;TreeNode&gt;();<br>        <span class="hljs-keyword">int</span> sum=<span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">if</span>(root!=<span class="hljs-keyword">null</span>) &#123;<br>            q.offer(root);<br>        &#125;<br>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>        <br>        <span class="hljs-keyword">while</span>(!q.isEmpty())&#123;<br>            <span class="hljs-keyword">int</span> cnt=q.size();<br>            sum+=cnt;<br>            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;cnt;i++)&#123;<br>                TreeNode tmp=q.peek();<br>                q.poll();<br>                <span class="hljs-keyword">if</span>(tmp.left!=<span class="hljs-keyword">null</span>)&#123;<br>                    q.offer(tmp.left);<br>                &#125;<br>                <span class="hljs-keyword">if</span>(tmp.right!=<span class="hljs-keyword">null</span>)&#123;<br>                    q.offer(tmp.right);<br>                &#125;<br>                <span class="hljs-comment">//sum++;</span><br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> sum;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;<br>    <span class="hljs-comment">// 通用递归解法</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">countNodes</span><span class="hljs-params">(TreeNode root)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span>(root == <span class="hljs-keyword">null</span>) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>        &#125;<br>        <span class="hljs-keyword">return</span> countNodes(root.left) + countNodes(root.right) + <span class="hljs-number">1</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;<br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 针对完全二叉树的解法</span><br><span class="hljs-comment">     *</span><br><span class="hljs-comment">     * 满二叉树的结点数为：2^depth - 1</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">countNodes</span><span class="hljs-params">(TreeNode root)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span>(root == <span class="hljs-keyword">null</span>) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>        &#125;<br>        <span class="hljs-keyword">int</span> leftDepth = getDepth(root.left);<br>        <span class="hljs-keyword">int</span> rightDepth = getDepth(root.right);<br>        <span class="hljs-keyword">if</span> (leftDepth == rightDepth) &#123;<span class="hljs-comment">// 左子树是满二叉树</span><br>            <span class="hljs-comment">// 2^leftDepth其实是 （2^leftDepth - 1） + 1 ，左子树 + 根结点</span><br>            <span class="hljs-keyword">return</span> (<span class="hljs-number">1</span> &lt;&lt; leftDepth) + countNodes(root.right);<br>        &#125; <span class="hljs-keyword">else</span> &#123;<span class="hljs-comment">// 右子树是满二叉树</span><br>            <span class="hljs-keyword">return</span> (<span class="hljs-number">1</span> &lt;&lt; rightDepth) + countNodes(root.left);<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getDepth</span><span class="hljs-params">(TreeNode root)</span> </span>&#123;<br>        <span class="hljs-keyword">int</span> depth = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">while</span> (root != <span class="hljs-keyword">null</span>) &#123;<br>            root = root.left;<br>            depth++;<br>        &#125;<br>        <span class="hljs-keyword">return</span> depth;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<blockquote>
-<p>完全二叉树只有两种情况，情况一：就是满二叉树，情况二：最后一层叶子节点没有满。<br>对于情况一，可以直接用 2^树深度 - 1 来计算，注意这里根节点深度为1。<br>对于情况二，分别递归左孩子，和右孩子，递归到某一深度一定会有左孩子或者右孩子为满二叉树，然后依然可以按照情况1来计算。</p>
-</blockquote>
+              <h1 id="边缘检测论文-Object-Contour-and-Edge-Detection-with-RefineContourNet"><a href="#边缘检测论文-Object-Contour-and-Edge-Detection-with-RefineContourNet" class="headerlink" title="[边缘检测论文]Object Contour and Edge Detection with RefineContourNet"></a>[边缘检测论文]Object Contour and Edge Detection with RefineContourNet</h1><h3 id="一、背景（2019年发表）"><a href="#一、背景（2019年发表）" class="headerlink" title="一、背景（2019年发表）"></a>一、背景（2019年发表）</h3><ul>
+<li>物体轮廓检测目的是提取图像中物体形状的信息，可靠的检测器可以从背景中区分目标的轮廓和边缘。</li>
+<li>基于CNN的方法有<strong>HED</strong>(发现使用预训练图像分类模型可以有效提取想要的图像边界信息并抑制不期待的边缘)/<strong>CEDN</strong>(使用全卷积编码解码器生成轮廓图)/<strong>COB</strong>(类似HED网络结构，使用面向多尺度轮廓以及分层的图像分割算法)，共同点就是使用比较深的网络，利用从ImageNet中与训练得到的高层分类信息，比如VGG。但是都没使用最新的分类网络，如ResNet.</li>
+<li>边缘检测中应用的方法有<strong>Canny</strong>算子、<strong>Sobel</strong>算子、<strong>Phase Stretch Transform</strong>、<strong>gPb</strong>(采用轮廓检测和分层图像分割相结合)、<strong>DeepNet</strong>和**$N^4$ -Fields**(使用CNN网络达到比较高层次的检测)、<strong>DeepEdge</strong>和<strong>DeepContour</strong>、<strong>CED</strong>、<strong>RCF</strong>、<strong>HFL</strong>。这几个网络都是基于像VGG或使用类似HED跨层的结构。</li>
+<li>作者认为上述工作在架构、骨干网络、训练过程和数据集方面，利用预先训练的分类能力方面有未开发的潜力。提出新的网络架构，采用基于resnet的多路径细化CNN进行目标轮廓检测。</li>
+</ul>
+<h3 id="二、-RefineContourNet"><a href="#二、-RefineContourNet" class="headerlink" title="二、 RefineContourNet"></a>二、 RefineContourNet</h3><p>1、Concept</p>
+<ul>
+<li>在RefineNet基础上改进，为了将分类能力与像素级检测阶段连接起来，逐步细化，即深度特征与下一个较浅级别的特征融合，直到达到最浅级别，应该比使用简单特征连接架构的跳跃层更有效。</li>
+<li>训练过程中必须完成的两点：一，有效地使用预先训练的特征来形成特定的抽象能力，以识别从数据中学习到的目标轮廓，二，将其与像素级检测阶段连接起来。</li>
+</ul>
+<p>2、Image Segmentation Network for Contour Detection</p>
+<ul>
+<li>边缘检测和图像分割网络最大的不同在于目标函数，边缘检测是一个二分类问题，本文使用逻辑回归作为 loss function：<ul>
+<li> $\begin{aligned} \mathrm{L}\left(h_{\Theta}(x), y\right)=&amp;-y \cdot \beta \log \left(h_{\Theta}(x)\right) \ &amp;-(1-y) \cdot \log \left(1-h_{\Theta}(x)\right), \end{aligned}$ </li>
+<li>$h_{\Theta}(x) \in[0,1], y \in{0,1}$ and  $\beta=10$ </li>
+<li> $h_{\Theta}(x)$ 是对具有相应二进制标签y的像素x的预测。 $\Theta$ 表示学习到的参数，$\beta$ 是一个加权因子，由于轮廓和非轮廓像素之间存在较大的不平衡，因此用于增强轮廓检测。改变损耗函数会根据二进制损耗函数改变RefineNet的最后一层。</li>
+</ul>
+</li>
+</ul>
+<p>3、Network Architecture</p>
+<ul>
+<li><p><img src="/.com//Users\祝静\Pictures\2.png" srcset="/img/loading.gif" lazyload alt="整体框架"></p>
+<ul>
+<li>块之间的连接表示分辨率大小和通道数</li>
+<li>在最后的细化步骤中，使用原始图像作为额外路径的输入，增加了3个RCUs，提高了结果。</li>
+</ul>
+</li>
+<li><p><img src="/.com//Users\祝静\Pictures\1.png" srcset="/img/loading.gif" lazyload alt="细化路径"></p>
+<ul>
+<li><p>RCU具有残差卷积层，增加参数量，可以调节和修改MRF的输入。</p>
+</li>
+<li><p>MRF首先通过卷积操作对输入进行自适应，以调整高阶特征空间对应的通道维数与低阶特征空间对应的通道维数。然后，对分辨率较小的特征图进行采样，使其与分辨率较大的特征图具有相同的张量维数，然后相加。</p>
+</li>
+<li><p>CRP的目标是从特征图中收集比普通最大池化层更多的上下文。将多个池块连接起来，每个池块由一个较大步长的max池和一个卷积操作组成。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="三、评价"><a href="#三、评价" class="headerlink" title="三、评价"></a>三、评价</h3><p>1、训练</p>
+<ul>
+<li>从训练集中选择1000张随机图像，通过随机裁剪、垂直翻转和0.7 - 1.3之间的缩放来增强数据。</li>
+<li><img src="/.com//Users\祝静\Pictures\3.png" srcset="/img/loading.gif" lazyload alt="详情"></li>
+</ul>
+<p>2、 Object Contour Detection Evaluation</p>
+<ul>
+<li><p> 使用工具：Piotr’s Computer Vision Matlab Toolbox，包括NMS对物体轮廓细化。</p>
+</li>
+<li><p>评价指标： 精度和召回率(PR)曲线，最佳数据集比例尺(ODS)、最佳图像比例尺(OIS)和平均精度(AP)</p>
+</li>
+<li><p><img src="/.com//Users\祝静\Pictures\5.png" srcset="/img/loading.gif" lazyload alt="PR"></p>
+<p><img src="/.com//Users\祝静\Pictures\6.png" srcset="/img/loading.gif" lazyload alt="可视化"></p>
+</li>
+</ul>
+<p>3、Edge Detection Evaluation</p>
+<ul>
+<li>对于目标轮廓检测任务，RCN仍然存在较厚边缘预测的缺点。然而，NMS对于RCN的边缘预测图更精确，因为每像素的位深度从8位增加到16位。</li>
+<li><img src="/.com//Users\祝静\Pictures\4.png" srcset="/img/loading.gif" lazyload alt="结果"></li>
+</ul>
+<h3 id="四、结论"><a href="#四、结论" class="headerlink" title="四、结论"></a>四、结论</h3><ul>
+<li>该策略比以往的方法更有效地利用了物体轮廓和边缘检测的高抽象性，在物体轮廓检测和边缘检测方面取得了非常好的结果。</li>
+<li>RefineNet为边缘检测提供了一个非常有用的自底向上多路径细化体系结构。通过非常规的训练方法，比如使用修改过的COCO数据集进行预训练，或者简单地使用所有单独的标签对BSDS500进行精细训练，能够改进各自的任务。</li>
+</ul>
 
             </div>
             <hr>
@@ -249,7 +296,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/Leetcode%E5%88%B7%E9%A2%98/">Leetcode刷题</a>
+                      <a class="hover-with-bg" href="/categories/%E8%AE%BA%E6%96%87/">论文</a>
                     
                   </div>
                 
@@ -257,7 +304,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/">二叉树</a>
+                      <a class="hover-with-bg" href="/tags/%E8%BE%B9%E7%BC%98%E6%A3%80%E6%B5%8B/">边缘检测</a>
                     
                   </div>
                 
@@ -274,18 +321,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/07/22/%5B%E8%BE%B9%E7%BC%98%E6%A3%80%E6%B5%8B%E8%AE%BA%E6%96%87%5DRCN/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">论文阅读</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/05/12/Leetcode%E6%95%B0%E7%BB%84%E9%A2%98%E5%9E%8B%E6%80%BB%E7%BB%93%E7%AF%87/">
-                        <span class="hidden-mobile">Leetcode数组题型总结篇</span>
+                      <a href="/2021/07/22/%5B%E8%BE%B9%E7%BC%98%E6%A3%80%E6%B5%8B%E8%AE%BA%E6%96%87%5DRCN/">
+                        <span class="hidden-mobile">论文阅读</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
