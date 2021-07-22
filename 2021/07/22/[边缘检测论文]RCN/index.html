@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+<html lang="zh-CN" data-default-color-scheme=&quot;auto&quot;>
 
 
 
@@ -240,9 +240,9 @@
 </ul>
 <h4 id="2、Image-Segmentation-Network-for-Contour-Detection"><a href="#2、Image-Segmentation-Network-for-Contour-Detection" class="headerlink" title="2、Image Segmentation Network for Contour Detection"></a>2、Image Segmentation Network for Contour Detection</h4><ul>
 <li>边缘检测和图像分割网络最大的不同在于目标函数，边缘检测是一个二分类问题，本文使用逻辑回归作为 loss function：<ul>
-<li> $\begin{aligned} \mathrm{L}\left(h_{\Theta}(x), y\right)=&amp;-y \cdot \beta \log \left(h_{\Theta}(x)\right) \ &amp;-(1-y) \cdot \log \left(1-h_{\Theta}(x)\right), \end{aligned}$ </li>
-<li>$h_{\Theta}(x) \in[0,1], y \in{0,1}$ and  $\beta=10$ </li>
-<li> $h_{\Theta}(x)$ 是对具有相应二进制标签y的像素x的预测。 $\Theta$ 表示学习到的参数，$\beta$ 是一个加权因子，由于轮廓和非轮廓像素之间存在较大的不平衡，因此用于增强轮廓检测。改变损耗函数会根据二进制损耗函数改变RefineNet的最后一层。</li>
+<li>$\begin{aligned} \mathrm{L}\left(h_{\Theta}(x), y\right)=&amp;-y \cdot \beta \log \left(h_{\Theta}(x)\right) \\ &amp;-(1-y) \cdot \log \left(1-h_{\Theta}(x)\right), \end{aligned}$ </li>
+<li>$h_{\Theta}(x) \in[0,1], y \in\{0,1\}$ and  $\beta=10$ </li>
+<li>$h_{\Theta}(x)$ 是对具有相应二进制标签y的像素x的预测。 $\Theta$ 表示学习到的参数，$\beta$ 是一个加权因子，由于轮廓和非轮廓像素之间存在较大的不平衡，因此用于增强轮廓检测。改变损耗函数会根据二进制损耗函数改变RefineNet的最后一层。</li>
 </ul>
 </li>
 </ul>
@@ -264,7 +264,7 @@
 <li>从训练集中选择1000张随机图像，通过随机裁剪、垂直翻转和0.7 - 1.3之间的缩放来增强数据。<br><img src="https://img-blog.csdnimg.cn/img_convert/3a792377934d0f70821ae601473f9b9b.png#pic_center" srcset="/img/loading.gif" lazyload alt="训练"></li>
 </ul>
 <h4 id="2、-Object-Contour-Detection-Evaluation"><a href="#2、-Object-Contour-Detection-Evaluation" class="headerlink" title="2、 Object Contour Detection Evaluation"></a>2、 Object Contour Detection Evaluation</h4><ul>
-<li><p> 使用工具：Piotr’s Computer Vision Matlab Toolbox，包括NMS对物体轮廓细化。</p>
+<li><p>使用工具：Piotr’s Computer Vision Matlab Toolbox，包括NMS对物体轮廓细化。</p>
 </li>
 <li><p>评价指标： 精度和召回率(PR)曲线，最佳数据集比例尺(ODS)、最佳图像比例尺(OIS)和平均精度(AP)</p>
 </li>
@@ -563,5 +563,20 @@ setInterval("createtime()", 250);
 <script  src="/js/boot.js" ></script>
 
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>
