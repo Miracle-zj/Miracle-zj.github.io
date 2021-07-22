@@ -225,10 +225,14 @@
             
             <div class="markdown-body">
               <h1 id="边缘检测论文-Object-Contour-and-Edge-Detection-with-RefineContourNet"><a href="#边缘检测论文-Object-Contour-and-Edge-Detection-with-RefineContourNet" class="headerlink" title="[边缘检测论文]Object Contour and Edge Detection with RefineContourNet"></a>[边缘检测论文]Object Contour and Edge Detection with RefineContourNet</h1><h3 id="一、背景（2019年发表）"><a href="#一、背景（2019年发表）" class="headerlink" title="一、背景（2019年发表）"></a>一、背景（2019年发表）</h3><ul>
-<li>物体轮廓检测目的是提取图像中物体形状的信息，可靠的检测器可以从背景中区分目标的轮廓和边缘。</li>
-<li>基于CNN的方法有<strong>HED</strong>(发现使用预训练图像分类模型可以有效提取想要的图像边界信息并抑制不期待的边缘)/<strong>CEDN</strong>(使用全卷积编码解码器生成轮廓图)/<strong>COB</strong>(类似HED网络结构，使用面向多尺度轮廓以及分层的图像分割算法)，共同点就是使用比较深的网络，利用从ImageNet中与训练得到的高层分类信息，比如VGG。但是都没使用最新的分类网络，如ResNet.</li>
-<li>边缘检测中应用的方法有<strong>Canny</strong>算子、<strong>Sobel</strong>算子、<strong>Phase Stretch Transform</strong>、<strong>gPb</strong>(采用轮廓检测和分层图像分割相结合)、<strong>DeepNet</strong>和 $N^4$ -Fields(使用CNN网络达到比较高层次的检测)、<strong>DeepEdge</strong>和<strong>DeepContour</strong>、<strong>CED</strong>、<strong>RCF</strong>、<strong>HFL</strong>。这几个网络都是基于像VGG或使用类似HED跨层的结构。</li>
-<li>作者认为上述工作在架构、骨干网络、训练过程和数据集方面，利用预先训练的分类能力方面有未开发的潜力。提出新的网络架构，采用基于resnet的多路径细化CNN进行目标轮廓检测。</li>
+<li><p>物体轮廓检测目的是提取图像中物体形状的信息，可靠的检测器可以从背景中区分目标的轮廓和边缘。</p>
+</li>
+<li><p>基于CNN的方法有<strong>HED</strong>(发现使用预训练图像分类模型可以有效提取想要的图像边界信息并抑制不期待的边缘)/<strong>CEDN</strong>(使用全卷积编码解码器生成轮廓图)/<strong>COB</strong>(类似HED网络结构，使用面向多尺度轮廓以及分层的图像分割算法)，共同点就是使用比较深的网络，利用从ImageNet中与训练得到的高层分类信息，比如VGG。但是都没使用最新的分类网络，如ResNet.</p>
+</li>
+<li><p>边缘检测中应用的方法有<strong>Canny</strong>算子、<strong>Sobel</strong>算子、<strong>Phase Stretch Transform</strong>、<strong>gPb</strong>(采用轮廓检测和分层图像分割相结合)、<strong>DeepNet</strong>和 $N^4$ -Fields(使用CNN网络达到比较高层次的检测)、<strong>DeepEdge</strong>和<strong>DeepContour</strong>、<strong>CED</strong>、<strong>RCF</strong>、<strong>HFL</strong>。这几个网络都是基于像VGG或使用类似HED跨层的结构。</p>
+</li>
+<li><p>作者认为上述工作在架构、骨干网络、训练过程和数据集方面，利用预先训练的分类能力方面有未开发的潜力。提出新的网络架构，采用基于resnet的多路径细化CNN进行目标轮廓检测。</p>
+</li>
 </ul>
 <h3 id="二、-RefineContourNet"><a href="#二、-RefineContourNet" class="headerlink" title="二、 RefineContourNet"></a>二、 RefineContourNet</h3><h4 id="1、Concept"><a href="#1、Concept" class="headerlink" title="1、Concept"></a>1、Concept</h4><ul>
 <li>在RefineNet基础上改进，为了将分类能力与像素级检测阶段连接起来，逐步细化，即深度特征与下一个较浅级别的特征融合，直到达到最浅级别，应该比使用简单特征连接架构的跳跃层更有效。</li>
@@ -307,12 +311,6 @@
                 <div class="post-prevnext">
                   <article class="post-prev col-6">
                     
-                    
-                      <a href="/2021/07/22/Object%20Contour%20and%20Edge%20Detection%20with%20RefineContourNet/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">论文阅读</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
                     
                   </article>
                   <article class="post-next col-6">
